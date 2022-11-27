@@ -1,4 +1,4 @@
-ipykernel
+jupyterlab
 tensorflow>=2.5
 tensorflow-hub
 matplotlib

@@ -1,10 +1,10 @@
-FROM python:3
+FROM python:3.10
 
 ARG TENSORFLOW_MODELS_REPOSITORY=https://github.com/tensorflow/models
 
 WORKDIR /notebooks
 
-RUN apt-get update && apt-get install -y protobuf-compiler &&\
+RUN apt-get update && apt-get install -y protobuf-compiler libgl1 &&\
     git clone --depth 1 ${TENSORFLOW_MODELS_REPOSITORY} &&\
         cd models/research/ &&\
         protoc object_detection/protos/*.proto --python_out=. &&\

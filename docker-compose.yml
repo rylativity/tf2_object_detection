@@ -3,7 +3,11 @@ version: '3.9'
 services:
   jupyter:
     build: .
+    environment:
+      - DISPLAY=$DISPLAY
     ports:
       - 8888:8888
     volumes:
       - ./notebooks/:/notebooks/
+    devices:
+      - /dev/video0:/dev/video0 #this makes the webcam accessible from inside container
